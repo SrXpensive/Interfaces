@@ -1,16 +1,23 @@
+import java.util.Random;
 public class Main {
     public static void main(String[] args) {
+        //He afegit la generació automàtica de números aleatoris
+        Random r = new Random();
         ArrayListDoubleEstadistica a = new ArrayListDoubleEstadistica();
-        ArrayDoubleEstadistica b = new ArrayDoubleEstadistica();
-        a.doubles.add(2.3);
-        a.doubles.add(3.4);
-        a.doubles.add(4.5);
-        b.array = new double[]{1.2,3.2,6.3};
-        System.out.println("Valor mínimo del ArrayList: "+a.minimo());
-        System.out.println("Valor máximo del ArrayList: "+a.maximo());
-        System.out.println("Suma de los elementos del ArrayList: "+a.suma());
-        System.out.println("Valor mínimo del Array: "+b.minimo());
-        System.out.println("Valor máximo del Array: "+b.maximo());
-        System.out.println("Suma de los elementos del Array: "+b.suma());
+        ArrayDoubleEstadistica b = new ArrayDoubleEstadistica(3);
+        
+        for(int i = 0; i < b.tope ; i ++){
+            b.add(r.nextDouble()*10);
+        }
+        for(int i = 0; i < 3; i ++){
+            a.add(r.nextDouble()*10);
+        }
+        // He modificat els prints per jugar un poc amb el format d'eixida
+        System.out.printf("Valor mínimo del ArrayList: %.2f\n",a.minimo());
+        System.out.printf("Valor máximo del ArrayList: %.2f\n",a.maximo());
+        System.out.printf("Suma de los elementos del ArrayList: %.2f\n",a.suma());
+        System.out.printf("Valor mínimo del Array: %.2f\n",b.minimo());
+        System.out.printf("Valor máximo del Array: %.2f\n",b.maximo());
+        System.out.printf("Suma de los elementos del Array: %.2f\n",b.suma());
     }
 }

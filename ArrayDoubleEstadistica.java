@@ -8,8 +8,18 @@ public class ArrayDoubleEstadistica implements Estadisticas{
         this.array = array;
         this.cuantos = cuantos;
     }
-    public ArrayDoubleEstadistica(){
+    // He modificat el constructor per a que espere el paràmetre tope
+    public ArrayDoubleEstadistica(int tope) {
+        this.tope = tope;
         array = new double[tope];
+        cuantos = 0;
+    }
+    // He posat també el mètode d'anyadir perque pareix una opció interesant
+    public void add(double numero){
+        if(cuantos < tope){
+            array[cuantos] = numero;
+            cuantos ++;
+        }
     }
 
     @Override
